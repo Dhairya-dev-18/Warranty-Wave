@@ -4,3 +4,4 @@ node_modules/
 *.iml
 .vscode/
 docker/.env
+.env
