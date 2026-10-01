@@ -11,6 +11,7 @@ import { buildSchedule, emi, round2 } from './emi';
 import { Role } from './models';
 
 const today = () => new Date().toISOString().slice(0, 10);
+const DB_KEY = 'ww.mock-db';
 const addMonths = (iso: string, n: number) => {
   const d = new Date(iso + 'T00:00:00Z'); d.setUTCMonth(d.getUTCMonth() + n); return d.toISOString().slice(0, 10);
 };
@@ -283,18 +284,35 @@ function route(m: string, p: string, q: URLSearchParams, b: any, u: DbUser | nul
   createApplication({ vehicleId: 1, type: 'LOAN', amount: 800000, downPayment: 100000, tenureMonths: 60, monthlyIncome: 90000, existingEmi: 15000, creditHistoryScore: 700, stableIncome: true }, 1);
 })();
 
+function persistDb() {
+  try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch { /* Storage may be unavailable. */ }
+}
+
+try {
+  const saved = localStorage.getItem(DB_KEY);
+  if (saved) Object.assign(db, JSON.parse(saved));
+  else persistDb();
+} catch {
+  persistDb();
+}
+
 export const mockApiInterceptor: HttpInterceptorFn = (req, next) => {
   if (!req.url.startsWith('/api')) return next(req);
   const url = new URL(req.urlWithParams, 'http://mock');
   const path = url.pathname.replace(/^\/api/, '');
+  if (/^\/(auth|vehicles|warranty-plans|warranties|claims|users|config\/rates|dashboard\/summary|finance|contracts)(\/|$)/.test(path)) return next(req);
   const auth = req.headers.get('Authorization');
   const user = auth ? db.users.find(x => 'mock-' + x.id === auth.replace('Bearer ', '')) ?? null : null;
   return timer(250).pipe(mergeMap(() => {
     try {
       const body = route(req.method, path, url.searchParams, req.body, user);
+      if (req.method !== 'GET') persistDb();
       return of(new HttpResponse({ status: 200, body: JSON.parse(JSON.stringify(body ?? {})) }));
     } catch (e: any) {
       return throwError(() => new HttpErrorResponse({ status: e.status ?? 500, error: { message: e.message ?? 'Mock error' } }));
     }
   }));
 };
+
+
+

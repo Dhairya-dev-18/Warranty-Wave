@@ -4,3 +4,6 @@ spring:
 logging:
   level:
     com.warrantywave: INFO
+
+jwt:
+  secret: ${JWT_SECRET}

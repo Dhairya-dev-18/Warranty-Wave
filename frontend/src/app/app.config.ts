@@ -6,7 +6,7 @@ import { routes } from './app.routes';
 import { jwtInterceptor } from './core/jwt.interceptor';
 import { mockApiInterceptor } from './core/mock-api.interceptor';
 
-/** The REST API is not implemented yet; retain the working demo interceptor. */
+/** The interceptor remains for demo-only routes; implemented API prefixes pass through to Spring Boot. */
 export const USE_MOCK_API = true;
 
 export const appConfig: ApplicationConfig = {
