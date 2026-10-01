@@ -1,10 +1,49 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; background: #f5f7fa; color: #1c2b36; }
-h2.title { margin: 0 0 16px; font-weight: 500; }
-.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: #f3f6fb;
+  color: #172b4d;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --ww-primary: #1769aa;
+  --ww-primary-deep: #124f83;
+  --ww-ink: #172b4d;
+  --ww-muted: #64748b;
+  --ww-border: #e2e8f0;
+  --ww-surface: #ffffff;
+}
+
+h2.title { margin: 2px 0 22px; font-weight: 600; font-size: 26px; letter-spacing: -.035em; color: var(--ww-ink); }
+h3 { margin: 26px 0 14px; font-size: 17px; font-weight: 600; color: var(--ww-ink); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 16px; }
 .full { width: 100%; }
 .mb { margin-bottom: 24px; }
-.muted { color: #5f6b73; }
-mat-card { border: 1px solid #e3e6ea; box-shadow: none !important; }
+.muted { color: var(--ww-muted); }
+
+mat-card {
+  border: 1px solid var(--ww-border) !important;
+  border-radius: 16px !important;
+  background: var(--ww-surface) !important;
+  box-shadow: 0 8px 24px rgba(31, 55, 88, .045) !important;
+}
 .mat-mdc-form-field { width: 100%; }
+.mat-mdc-raised-button.mat-primary, .mat-mdc-unelevated-button.mat-primary { --mdc-protected-button-container-color: var(--ww-primary); }
+.mat-mdc-raised-button.mat-primary:hover, .mat-mdc-unelevated-button.mat-primary:hover { --mdc-protected-button-container-color: var(--ww-primary-deep); }
+.mat-mdc-outlined-button { border-radius: 10px !important; }
+.mat-mdc-text-field-wrapper { border-radius: 10px !important; }
+
+/* Tables and repeated data panels */
+table.mat-mdc-table { background: #fff; }
+.mat-mdc-header-row { background: #f7f9fc; }
+.mat-mdc-header-cell { color: #52647c; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.mat-mdc-row { transition: background-color .16s ease; }
+.mat-mdc-row:hover { background: #f8fbff; }
+
+@media (max-width: 640px) {
+  h2.title { font-size: 23px; margin-bottom: 18px; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}

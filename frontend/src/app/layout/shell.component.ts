@@ -72,11 +72,20 @@ const NAV: Record<Role, NavItem[]> = {
     </mat-sidenav-content>
   </mat-sidenav-container>`,
   styles: [`
-    .shell{height:100vh}mat-sidenav{width:250px}
-    .brand{display:flex;gap:8px;align-items:center;font-size:19px;font-weight:600;padding:20px 16px;color:#1a5fb4}
-    .active{background:#e6effa}.spacer{flex:1}.who{margin-right:12px;font-size:14px}
-    mat-toolbar{background:#fff;border-bottom:1px solid #e3e6ea;gap:4px}
-    .page{padding:24px;max-width:1200px;margin:0 auto}`],
+    .shell{height:100vh;background:#f3f6fb}
+    mat-sidenav{width:258px;background:linear-gradient(180deg,#fff 0%,#f9fbfe 100%);border-right:1px solid #e2e8f0}
+    .brand{display:flex;gap:10px;align-items:center;font-size:19px;font-weight:700;letter-spacing:-.035em;padding:24px 20px;color:#172b4d}
+    .brand mat-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:#e8f2fc;color:#1769aa}
+    mat-nav-list{padding:8px 12px}
+    a[mat-list-item]{border-radius:10px;margin:3px 0;color:#52647c;font-weight:500;transition:background .16s ease,color .16s ease}
+    a[mat-list-item]:hover{background:#f0f6fc;color:#1769aa}
+    .active{background:#e8f2fc!important;color:#1769aa!important;font-weight:600!important}
+    .active mat-icon{color:#1769aa}
+    .spacer{flex:1}.who{margin-right:10px;font-size:13px;font-weight:500;color:#40536d}
+    mat-toolbar{height:68px;background:rgba(255,255,255,.92);border-bottom:1px solid #e2e8f0;gap:6px;padding:0 22px}
+    .page{padding:30px 34px;max-width:1240px;margin:0 auto}
+    @media(max-width:640px){mat-toolbar{height:60px;padding:0 12px}.page{padding:22px 16px}}
+  `],
 })
 export class ShellComponent {
   auth = inject(AuthService);
