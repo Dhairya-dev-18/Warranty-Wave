@@ -38,8 +38,8 @@ export interface Col { key: string; label: string; type?: 'text' | 'money' | 'da
       <tr class="mat-row" *matNoDataRow><td class="mat-cell empty" [attr.colspan]="displayed.length">No records found</td></tr>
     </table>
   </div>`,
-  styles: [`.wrap{overflow-x:auto;background:#fff;border-radius:8px;border:1px solid #e3e6ea}
-    table{width:100%}.empty{padding:24px;text-align:center;color:#6b747b}.act{text-align:right;white-space:nowrap}`],
+  styles: [`.wrap{overflow-x:auto;background:var(--ww-surface);border-radius:14px;border:1px solid var(--ww-border);box-shadow:var(--ww-shadow)}
+    table{width:100%}.empty{padding:28px;text-align:center;color:var(--ww-muted)}.act{text-align:right;white-space:nowrap}`],
 })
 export class DataTableComponent {
   @Input({ required: true }) cols: Col[] = [];

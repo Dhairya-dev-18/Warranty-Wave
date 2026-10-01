@@ -56,13 +56,13 @@ import { MATERIAL } from '../shared/material';
     } @else if (x.decisionNote) { <p class="muted">Decision note: {{ x.decisionNote }}</p> }
   } @else { <mat-progress-bar mode="indeterminate" /> }
   <p><a routerLink="/credit/queue">← Back to queue</a></p>`,
-  styles: [`.score{font-size:32px}.meter{position:relative;height:14px;background:#eceff1;border-radius:7px;margin:12px 0 4px}
+  styles: [`.score{font-size:32px;color:var(--ww-ink)}.meter{position:relative;height:14px;background:var(--ww-hover);border-radius:7px;margin:12px 0 4px}
     .fill{height:100%;background:linear-gradient(90deg,#d64545,#e6a700,#2e9d54);border-radius:7px}
-    .tick{position:absolute;top:-3px;width:2px;height:20px;background:#1c2b36}
+    .tick{position:absolute;top:-3px;width:2px;height:20px;background:var(--ww-ink)}
     .scale{position:relative;height:18px;font-size:12px}.scale span{position:absolute;transform:translateX(-50%)}.scale span:first-child{left:0;transform:none}
     .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-    .line{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #eef0f2}
-    .neg{color:#a4231b}.total{border-bottom:0;font-size:16px}`],
+    .line{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--ww-border);color:var(--ww-ink)}
+    .neg{color:#c23b32}.total{border-bottom:0;font-size:16px}`],
 })
 export class AssessmentDetailComponent implements OnInit {
   @Input() id!: string;

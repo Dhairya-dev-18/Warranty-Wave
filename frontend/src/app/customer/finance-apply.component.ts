@@ -65,7 +65,7 @@ import { MATERIAL } from '../shared/material';
       </mat-stepper>
     </mat-card-content></mat-card>
   }`,
-  styles: [`.pad{padding-top:16px}.line{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #eef0f2}`],
+  styles: [`.pad{padding-top:16px}.line{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--ww-border);color:var(--ww-ink)}`],
 })
 export class FinanceApplyComponent implements OnInit {
   private api = inject(ApiService); private snack = inject(MatSnackBar); private fb = inject(FormBuilder);

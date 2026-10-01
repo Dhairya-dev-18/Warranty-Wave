@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem('ww-theme');
+        const theme = saved === 'light' || saved === 'dark' ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch { document.documentElement.dataset.theme = 'light'; }
+    })();
+  </script>
   <meta charset="utf-8">
   <title>WarrantyWave</title>
   <base href="/">

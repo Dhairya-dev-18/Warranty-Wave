@@ -19,7 +19,7 @@ import { StatusChipComponent } from '../shared/status-chip.component';
       }
     </div>
   } @else { <mat-progress-bar mode="indeterminate" /> }`,
-  styles: [`.bars{display:grid;gap:10px;max-width:640px;background:#fff;border:1px solid #e3e6ea;border-radius:10px;padding:16px}
+  styles: [`.bars{display:grid;gap:12px;max-width:720px;background:var(--ww-surface);border:1px solid var(--ww-border);border-radius:14px;padding:18px;box-shadow:var(--ww-shadow)}
     .bar{display:grid;grid-template-columns:130px 1fr 32px;gap:12px;align-items:center}`],
 })
 export class DashboardComponent implements OnInit {

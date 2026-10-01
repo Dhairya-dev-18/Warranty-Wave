@@ -21,10 +21,10 @@ import { MATERIAL } from '../shared/material';
       @for (d of demos; track d) { <button mat-stroked-button type="button" (click)="fill(d)">{{ d.split('@')[0] }}</button> }
     </div>
   </mat-card></div>`,
-  styles: [`.bg{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#e6effa,#f7f9fc);padding:16px}
-    .box{width:100%;max-width:400px;padding:28px}h1{margin:0;color:#1a5fb4}.sub{margin:4px 0 20px;color:#5f6b73}
-    .full{width:100%}.err{color:#a4231b;margin:0 0 12px}.reg{text-align:center}
-    .demo{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:#5f6b73;margin-top:8px}.demo span{width:100%}`],
+  styles: [`.bg{min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at top left,var(--ww-primary-soft),transparent 48%),var(--ww-bg);padding:20px}
+    .box{width:100%;max-width:440px;padding:32px;border-radius:20px!important}h1{margin:0;color:var(--ww-primary);font-size:28px;letter-spacing:-.04em}.sub{margin:6px 0 24px;color:var(--ww-muted)}
+    .full{width:100%}.err{color:var(--ww-danger);background:var(--ww-danger-bg);border-radius:8px;padding:10px 12px;margin:0 0 12px}.reg{text-align:center;color:var(--ww-muted)}
+    a{color:var(--ww-primary);font-weight:600}.demo{display:flex;flex-wrap:wrap;gap:7px;align-items:center;font-size:12px;color:var(--ww-muted);margin-top:18px;padding-top:16px;border-top:1px solid var(--ww-border)}.demo span{width:100%;margin-bottom:3px}`],
 })
 export class LoginComponent {
   private auth = inject(AuthService); private router = inject(Router);

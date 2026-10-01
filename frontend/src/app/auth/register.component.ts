@@ -23,8 +23,8 @@ import { MATERIAL } from '../shared/material';
     </form>
     <p class="reg">Already registered? <a routerLink="/login">Sign in</a></p>
   </mat-card></div>`,
-  styles: [`.bg{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#e6effa,#f7f9fc);padding:16px}
-    .box{width:100%;max-width:400px;padding:28px}h1{margin:0 0 16px;color:#1a5fb4}.full{width:100%}.err{color:#a4231b}.reg{text-align:center}`],
+  styles: [`.bg{min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at top left,var(--ww-primary-soft),transparent 48%),var(--ww-bg);padding:20px}
+    .box{width:100%;max-width:440px;padding:32px;border-radius:20px!important}h1{margin:0 0 22px;color:var(--ww-primary);font-size:27px;letter-spacing:-.04em}.full{width:100%}.err{color:var(--ww-danger);background:var(--ww-danger-bg);border-radius:8px;padding:10px 12px}.reg{text-align:center;color:var(--ww-muted)}a{color:var(--ww-primary);font-weight:600}`],
 })
 export class RegisterComponent {
   private auth = inject(AuthService); private router = inject(Router); private snack = inject(MatSnackBar);

@@ -28,7 +28,7 @@ import { MATERIAL } from '../shared/material';
     <app-data-table [cols]="cols" [rows]="schedule()" />
   } @else { <mat-progress-bar mode="indeterminate" /> }
   <p><a routerLink="/finance">← Back to my finance</a></p>`,
-  styles: ['.late{color:#a4231b}'],
+  styles: ['.late{color:var(--ww-danger)}'],
 })
 export class ContractDetailComponent implements OnInit {
   @Input() id!: string; // bound from the route (withComponentInputBinding)
